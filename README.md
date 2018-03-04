@@ -3,6 +3,8 @@ An Xcode 9 written with Swift 4 to introduce concurrency using `BlockOperation`,
 
 Here's the app this project builds in action:
 
+[![Watch the video](http://iosbrain.com/wp-content/uploads/2018/03/appStill.png)](http://iosbrain.com/wp-content/uploads/2018/03/downloadImages.mp4)
+
 ![alt text][logo1]
 
 [logo1]: http://iosbrain.com/wp-content/uploads/2018/03/downloadImages.mp4 "Concurrency app"
