@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Concurrency_Via_BlockOperation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vXV-qB-FPH">
+                                <rect key="frame" x="27" y="173" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="QuV-zN-IZA"/>
+                                    <constraint firstAttribute="height" constant="320" id="ULT-lA-qvU"/>
+                                    <constraint firstAttribute="width" secondItem="vXV-qB-FPH" secondAttribute="height" multiplier="1:1" id="vve-65-TvU"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Index:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTP-uW-1tL">
+                                <rect key="frame" x="138.5" y="501" width="97.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2q9-S8-sCD">
+                                <rect key="frame" x="173.5" y="529.5" width="28.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tbZ-zQ-AtD">
+                                <rect key="frame" x="16" y="163" width="343" height="2"/>
+                            </progressView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KBx-hp-wOx" userLabel="Incr Stack View">
+                                <rect key="frame" x="76" y="125" width="222" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeI-Yo-j0f">
+                                        <rect key="frame" x="0.0" y="0.0" width="117" height="30"/>
+                                        <state key="normal" title="Increment count:"/>
+                                        <connections>
+                                            <action selector="incrementButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="65u-ml-cCH"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zO3-9I-n2f">
+                                        <rect key="frame" x="125" y="0.0" width="97" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="97" id="x5R-NV-B6H"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXs-Y4-iMm">
+                                <rect key="frame" x="65" y="59" width="244" height="30"/>
+                                <state key="normal" title="Start images downloading - Batch 1"/>
+                                <connections>
+                                    <action selector="startImagesDownloadingBatch1Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ebZ-fS-fTw"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Z6f-tA-Tjz" userLabel="Calc Stack View">
+                                <rect key="frame" x="100" y="97" width="174" height="20"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLU-Bx-toX">
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="20"/>
+                                        <state key="normal" title="Start long calculation"/>
+                                        <connections>
+                                            <action selector="startLongCalcButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PQS-TU-uGz"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lBd-aj-Mvp">
+                                        <rect key="frame" x="154" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="PfU-K4-51j"/>
+                                            <constraint firstAttribute="width" secondItem="lBd-aj-Mvp" secondAttribute="height" multiplier="1:1" id="gho-yB-pNr"/>
+                                            <constraint firstAttribute="width" constant="20" id="yz4-02-pIS"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brain" translatesAutoresizingMaskIntoConstraints="NO" id="iXK-Ug-FbS">
+                                <rect key="frame" x="163" y="598" width="49" height="49"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iXK-Ug-FbS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0ef-jb-EGo"/>
+                            <constraint firstItem="vXV-qB-FPH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="42s-sy-tfH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iXK-Ug-FbS" secondAttribute="bottom" constant="20" id="DUK-VT-fpU"/>
+                            <constraint firstItem="tbZ-zQ-AtD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="GO3-o0-mHV"/>
+                            <constraint firstItem="vXV-qB-FPH" firstAttribute="top" secondItem="tbZ-zQ-AtD" secondAttribute="bottom" constant="8" id="Gkp-ds-lna"/>
+                            <constraint firstItem="QXs-Y4-iMm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KiU-iU-wCh"/>
+                            <constraint firstItem="2q9-S8-sCD" firstAttribute="top" secondItem="VTP-uW-1tL" secondAttribute="bottom" constant="8" id="L0D-Pa-66p"/>
+                            <constraint firstItem="Z6f-tA-Tjz" firstAttribute="top" secondItem="QXs-Y4-iMm" secondAttribute="bottom" constant="8" id="L2n-L0-zDn"/>
+                            <constraint firstItem="tbZ-zQ-AtD" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Y5w-qH-xt7"/>
+                            <constraint firstItem="Z6f-tA-Tjz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YzE-Wk-nmR"/>
+                            <constraint firstItem="KBx-hp-wOx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e3X-wQ-qTr"/>
+                            <constraint firstItem="tbZ-zQ-AtD" firstAttribute="top" secondItem="KBx-hp-wOx" secondAttribute="bottom" constant="8" id="fPT-VG-c7W"/>
+                            <constraint firstItem="VTP-uW-1tL" firstAttribute="top" secondItem="vXV-qB-FPH" secondAttribute="bottom" constant="8" id="geX-Eh-olf"/>
+                            <constraint firstItem="2q9-S8-sCD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h3Z-PL-iKP"/>
+                            <constraint firstItem="KBx-hp-wOx" firstAttribute="top" secondItem="Z6f-tA-Tjz" secondAttribute="bottom" constant="8" id="mkX-eo-gCF"/>
+                            <constraint firstItem="vXV-qB-FPH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qdO-U3-MbD"/>
+                            <constraint firstItem="VTP-uW-1tL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uL6-Pw-PCH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="lBd-aj-Mvp" id="baD-qj-kfP"/>
+                        <outlet property="imageIndexText" destination="2q9-S8-sCD" id="hwr-xC-Edl"/>
+                        <outlet property="imageView" destination="vXV-qB-FPH" id="gUH-fb-yWi"/>
+                        <outlet property="incrementCountText" destination="zO3-9I-n2f" id="AWI-3f-wHG"/>
+                        <outlet property="progressView" destination="tbZ-zQ-AtD" id="3UA-GY-zwB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="96.7016491754123"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="brain" width="49" height="49"/>
+    </resources>
+</document>
