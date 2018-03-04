@@ -239,6 +239,8 @@ class ViewController: UIViewController
     
     // MARK: - Utilities
     
+    // print precise date so we can get an idea of
+    // how long tasks take to execute
     func printDateTime() -> Void
     {
         let date = Date()
