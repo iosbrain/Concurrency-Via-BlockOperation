@@ -109,6 +109,8 @@ class ViewController: UIViewController
         let blockOperationForLongCalculation = BlockOperation
         {
             
+/// *** BEGIN DEFINITION OF TASK/BLOCK TO RUN IN BACKGROUND *** \\\
+            
             // we'll repeatedly add 1 to this value
             // one million five hundred thousand times
             var total = 0
@@ -118,15 +120,21 @@ class ViewController: UIViewController
                 total = total + 1
                 print("total + 1 = \(total)")
             }
-            
+
             // when the computation finished, we JUMP
             // ONTO THE MAIN QUEUE TO UPDATE THE UI
             OperationQueue.main.addOperation
             {
+                
+    // ** BEGIN DEFINITION OF TASK/BLOCK COMPLETION ** \\
+                
                 print("FINAL total: \(total)")
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.alpha = 0.0
-            }
+                
+    // ** END DEFINITION OF TASK/BLOCK COMPLETION ** \\
+
+            } // end OperationQueue.main.addOperation
             
         } // end let blockOperationForLongCalc = BlockOperation
         
@@ -134,6 +142,8 @@ class ViewController: UIViewController
         // queue, it starts executing and "remains in the queue
         // until it finishes executing"
         longCalculationQueue.addOperation(blockOperationForLongCalculation)
+        
+/// *** END DEFINITION OF TASK/BLOCK TO RUN IN BACKGROUND *** \\\
         
     } // end func startLongCalculation()
     
@@ -172,15 +182,20 @@ class ViewController: UIViewController
             // and concurrency
             print("Batch 1 - Image \(index) queued for download")
             
-            // add the image download blocks to our BlockOperation
+            // add the image download block to our BlockOperation
             blockOperationForImageDownloads.addExecutionBlock
             {
+                
+/// *** BEGIN DEFINITION OF TASK/BLOCK TO RUN IN BACKGROUND *** \\\
                 
                 let imageURL = URL(string: self.imageURLs[index])
                 let imageData = NSData(contentsOf: imageURL!)
                 
                 OperationQueue.main.addOperation
                 {
+                    
+    // ** BEGIN DEFINITION OF TASK/BLOCK COMPLETION *** \\
+                    
                     print("Batch 1 - Image \(index) has downloaded")
                     self.imageCounter += 1
                     self.progressView.progress = Float(self.imageCounter) / Float(self.imageURLs.count)
@@ -192,7 +207,12 @@ class ViewController: UIViewController
                     {
                         self.printDateTime()
                     }
-                }
+                    
+    // ** END DEFINITION OF TASK/BLOCK COMPLETION ** \\
+                    
+                } // end OperationQueue.main.addOperation
+                
+/// *** END DEFINITION OF TASK/BLOCK TO RUN IN BACKGROUND *** \\\
                 
             } // end blockOperationForImageDownloads.addExecutionBlock
             
