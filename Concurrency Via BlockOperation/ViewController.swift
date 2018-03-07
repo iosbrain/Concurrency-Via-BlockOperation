@@ -136,14 +136,14 @@ class ViewController: UIViewController
 
             } // end OperationQueue.main.addOperation
             
+/// *** END DEFINITION OF TASK/BLOCK TO RUN IN BACKGROUND *** \\\
+
         } // end let blockOperationForLongCalc = BlockOperation
         
         // by adding the BlockOperation to its corresponding
         // queue, it starts executing and "remains in the queue
         // until it finishes executing"
         longCalculationQueue.addOperation(blockOperationForLongCalculation)
-        
-/// *** END DEFINITION OF TASK/BLOCK TO RUN IN BACKGROUND *** \\\
         
     } // end func startLongCalculation()
     
