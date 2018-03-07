@@ -1,6 +1,10 @@
 # Concurrency-Via-BlockOperation
 An Xcode 9 written with Swift 4 to introduce concurrency using `BlockOperation`, a "concrete subclass of Operation that manages the concurrent execution of one or more blocks." [1]
 
+Here's the app this project builds in action:
+
+[![Watch the video](http://iosbrain.com/wp-content/uploads/2018/03/appStill.png)](http://iosbrain.com/wp-content/uploads/2018/03/downloadImages.mp4)
+
 [1] https://developer.apple.com/documentation/foundation/blockoperation
 
 ## Xcode 9 project settings
